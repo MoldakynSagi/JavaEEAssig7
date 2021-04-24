@@ -6,16 +6,16 @@ import kz.javaee.demo.Model.User;
 public class ForumController {
 
     private UsersCollection usersCollection ;
-    private Messages messages;
+    private MessageCol messages;
     private Token token;
     private Forums forums;
-    private Forum_messages forum_messages;
+    private FMessages forum_messages;
 
     public ForumController() {
         usersCollection = new UsersCollection();
-        messages = new Messages();
+        messages = new MessageCol();
         token = new Token();
-        forum_messages = new Forum_messages(messages);
+        forum_messages = new FMessages(messages);
         forums = new Forums(forum_messages);
     }
 
@@ -27,11 +27,11 @@ public class ForumController {
         this.usersCollection = usersCollection;
     }
 
-    public Messages getMessages() {
+    public MessageCol getMessages() {
         return messages;
     }
 
-    public void setMessages(Messages messages) {
+    public void setMessages(MessageCol messages) {
         this.messages = messages;
     }
 
@@ -55,7 +55,7 @@ public class ForumController {
         return forum_messages;
     }
 
-    public void setForum_messages(Forum_messages forum_messages) {
+    public void setForum_messages(FMessages forum_messages) {
         this.forum_messages = forum_messages;
     }
 

@@ -6,15 +6,15 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-public class Messages {
+public class MessageCol {
 
 
-    public Messages() {
+    public MessageCol() {
     }
 
-    public Message getMessage(int id, Connection conn) {
+    public kz.javaee.demo.Model.Message getMessage(int id, Connection conn) {
 
-        Message message = null;
+        kz.javaee.demo.Model.Message message = null;
 
         String sql = "SELECT * FROM message WHERE id=?";
         try (PreparedStatement preparedStatement = conn.prepareStatement(sql)) {
@@ -25,7 +25,7 @@ public class Messages {
                 String text = resultSet.getString(2);
                 String author = resultSet.getString(3);
                 int likes = resultSet.getInt(4);
-                message = new Message(id, text, author, likes);
+                message = new kz.javaee.demo.Model.Message(id, text, author, likes);
             }
         } catch (Exception ex) {
             System.out.println(ex);
@@ -35,7 +35,7 @@ public class Messages {
     }
 
 
-    public int insert(Message message, Connection conn) {
+    public int insert(kz.javaee.demo.Model.Message message, Connection conn) {
 
         String sql = "INSERT INTO message (message, author, likes) Values (?, ?, ?)";
         try (PreparedStatement preparedStatement = conn.prepareStatement(sql)) {
@@ -53,7 +53,7 @@ public class Messages {
 
     }
 
-    public int update(Message message, Connection conn) {
+    public int update(kz.javaee.demo.Model.Message message, Connection conn) {
 
         String sql = "UPDATE message SET message = ?, author = ?, likes = ?   WHERE id = ?";
         try (PreparedStatement preparedStatement = conn.prepareStatement(sql)) {

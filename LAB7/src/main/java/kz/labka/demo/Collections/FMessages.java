@@ -8,11 +8,12 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
-public class Forum_messages {
+public class FMessage
+{
 
-    private Messages messagesCollection;
+    private MessageCol messagesCollection;
 
-    public Forum_messages(Messages messages) {
+    public (MessageCol messages) {
         this.messagesCollection = messages;
     }
 
